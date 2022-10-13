@@ -1,0 +1,45 @@
+.height-vh {
+    height: 80vh;
+}
+
+@media screen and (max-width: 639px) {
+    .explore-jobvacancy-wraper {
+        display: flex;
+        flex-direction: column !important;
+
+    }
+
+    /* searcbar */
+    .searchbar-wrapper {
+        padding-top: 0;
+    }
+
+    .button-search-wrapper {
+        grid-column-start: span 3 !important;
+        grid-column-end: span 3 !important;
+    }
+
+    .button-search-mobile-device {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .location-visibility {
+        display: none;
+    }
+
+    /* End searcbar */
+
+    /* sidebar */
+    .mobile-sidebar {
+        width: 96%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* card list jobvacancy */
+    .card-mobile-responsive {
+        width: 100%;
+    }
+}
