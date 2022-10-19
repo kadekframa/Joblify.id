@@ -41,7 +41,7 @@ const HomePage = () => {
         <div className='pt-10'>
             <h1 className='text-2xl font-semibold font-sans'>Lowongan Kerja Yang Tersedia:</h1>
         </div>
-        <div className='grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3 pt-10'>
+        <div className='grid gap-4 lg:grid-cols-3 md:grid-cols-2 pt-10'>
             {skeleton && (
                 <>
                     <SkeletonCardComponent/>

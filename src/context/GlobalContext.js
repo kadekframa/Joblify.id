@@ -11,6 +11,7 @@ export const GlobalProvider = (props) => {
     });
     const [jobs, setJobs] = useState([]);
     const [fetchstatus, setFetchstatus] = useState(true);
+    const [skeleton, setSkeleton] = useState(true);
 
 
     /** Login */
@@ -60,6 +61,7 @@ export const GlobalProvider = (props) => {
           // console.info(result.data.data)
           let jobs = result.data.data;
           setJobs(jobs);
+          setSkeleton(false);
         })
         .catch(error => {
           console.info(`Error: ${error}`);
@@ -73,6 +75,7 @@ export const GlobalProvider = (props) => {
         input, setInput,
         jobs, setJobs,
         fetchstatus, setFetchstatus,
+        skeleton, setSkeleton,
     }
 
     let handleFunction = {

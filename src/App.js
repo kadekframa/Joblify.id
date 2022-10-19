@@ -5,6 +5,7 @@ import CreateJobVacancy from "./pages/CreateJobVacancy";
 import Dashboard from "./pages/Dashboard";
 import EditJobVacancy from "./pages/EditJobVacancy";
 import ExploreVacancyPage from "./pages/ExploreVacancyPage";
+import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -16,6 +17,14 @@ function App() {
         <Routes>
           <Route
             path="/"
+            element={
+              <Layout>
+                <HomePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/explore-vacancy"
             element={
               <Layout>
                 <ExploreVacancyPage />

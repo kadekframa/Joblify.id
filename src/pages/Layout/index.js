@@ -1,11 +1,11 @@
 import React from "react";
 import Footerbar from "../../components/Footerbar";
-import Navbar from "../../components/Navbar";
+import NavbarComponent from "../../components/NavbarComponent";
 
 const Layout = (props) => {
   return (
     <>
-      <Navbar />
+      <NavbarComponent />
       {props.children}
       <Footerbar/>
     </>
