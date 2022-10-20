@@ -37,8 +37,19 @@ export const GlobalProvider = (props) => {
           })
           .then(result => {
             let data = results.data;
-            Cookies.set('token', data.token, {expires: 1});
-            Cookies.set('UserLogin', data.user.name, {expires: 1});
+            const userData = {
+              token: data.token,
+              email: data.user.email,
+              name: data.user.name,
+              image_url: data.user.image_url,
+            }
+
+            const {token, email, name, image_url} = userData;
+
+            Cookies.set('token', token, {expires: 1});
+            Cookies.set('userEmail', email, {expires: 1});
+            Cookies.set('userName', name, {expires: 1});
+            Cookies.set('userPhoto', image_url, {expires: 1});
 
             setInput({
               email: '',

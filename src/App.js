@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalContext";
+import AboutUs from "./pages/AboutUs";
 import CreateJobVacancy from "./pages/CreateJobVacancy";
 import Dashboard from "./pages/Dashboard";
 import EditJobVacancy from "./pages/EditJobVacancy";
@@ -8,6 +9,7 @@ import ExploreVacancyPage from "./pages/ExploreVacancyPage";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 
 function App() {
@@ -52,6 +54,22 @@ function App() {
             element={
               <Layout>
                 <EditJobVacancy/>
+              </Layout>
+            }
+          />
+          <Route
+            path="/about-us"
+            element={
+              <Layout>
+                <AboutUs/>
+              </Layout>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Layout>
+                <Profile/>
               </Layout>
             }
           />

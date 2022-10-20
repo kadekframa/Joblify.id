@@ -4,7 +4,6 @@ import React from 'react';
 const Profile = () => {
   return (
     <div className='h-screen py-32'>
-        
         <div class="p-16 bg-gray-100">
             <div class="text-center mb-4 opacity-90">
                 <a href="#" class="block relative">
@@ -43,7 +42,6 @@ const Profile = () => {
                 </a>
             </div>
         </div>
-
     </div>
   )
 }

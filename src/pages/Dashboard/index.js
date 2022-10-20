@@ -83,7 +83,10 @@ const Dashboard = () => {
                                 </div>
                                 <div class="relative flex items-center justify-end w-2/4 mr-0 sm:mr-0 sm:right-auto">
                                     <a href="/add-jobvacancy" class="block relative flex my-auto justify-center items-center">
-                                        <button type="button" class="text-white bg-sky-800 hover:bg-sky-700 focus:ring-4 focus:ring-blue-300 font-small rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add Jobs</button>
+                                        <button type="button" class="flex text-white bg-sky-800 hover:bg-sky-700 focus:ring-4 focus:ring-blue-300 font-small rounded-lg text-sm px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                            Add Jobs
+                                        </button>
                                     </a>
                                 </div>
                                 </div>
