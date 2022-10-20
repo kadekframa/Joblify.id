@@ -3,7 +3,8 @@ import Cookies from "js-cookie";
 // import { Link } from "react-router-dom";
 import swal from 'sweetalert';
 import Logo from '../../assets/images/logo-joblify.png';
-import { Navbar } from "flowbite-react";
+import { Navbar, Dropdown } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const NavbarComponent = () => {
 
@@ -14,7 +15,7 @@ const NavbarComponent = () => {
       class='bg-white shadow-lg shadow-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 fixed w-full z-50'
     >
       <Navbar.Brand href="https://flowbite.com/">
-            <img src={Logo} class="mr-3 h-6 sm:h-9" alt="Joblify.id Logo" width={65}/>
+            <img src={Logo} class="mr-3 h-6 sm:h-9" alt="Joblify.id Logo"/>
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">JOBLIFY.ID</span>
       </Navbar.Brand>
       <Navbar.Toggle />
@@ -32,7 +33,7 @@ const NavbarComponent = () => {
               </li>
             }
             <li className="flex items-center">
-              <a href="/" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sky-800 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
+              <a href="/about-us" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sky-800 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About Us</a>
             </li>
             {!Cookies.get('token') && 
             <>
@@ -51,35 +52,55 @@ const NavbarComponent = () => {
             {Cookies.get('token') &&
               <li className="flex items-center">
                 <span
-                  onClick={() => {
-                    swal({
-                      title: 'Are you sure want to Logout?',
-                      text: 'Once you click OK, you will logout from the system!',
-                      icon: 'warning',
-                      buttons: true,
-                      dangerMode: true,
-                    })
-                      .then(willLogout => {
-                        if (willLogout) {
-                          swal('Logout Success!', {
-                            icon: 'success',
-                          })
-                          .then(result => {
-                            Cookies.remove('token');
-                            Cookies.remove('UserLogin');
-                            window.location.href = '/';
-                          })
-
-                        } else {
-                          swal('Logout failed!', {
-                            icon: 'warning',
-                          })
-                        }
-                      })
-
-                  }}
                 >
-                  <button type="button" class="text-black border border-gray-300 hover:bg-sky-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 rounded-lg text-sm px-5 py-2.5 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{Cookies.get('UserLogin')}</button>
+                  {/* <button type="button" class="text-black border border-gray-300 hover:bg-sky-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-200 rounded-lg text-sm px-5 py-2.5 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{Cookies.get('UserLogin')}</button> */}
+                  <Dropdown color='gray' label={Cookies.get('userName')}>
+                    <Dropdown.Header>
+                      <span className="block text-sm">
+                        {Cookies.get('userName')}
+                      </span>
+                      <span className="block text-sm font-medium truncate">
+                        test@flowbite.com
+                      </span>
+                    </Dropdown.Header>
+                    <Dropdown.Item>
+                      <a href="/profile" className="w-full">Profile</a>
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item
+                      onClick={() => {
+                        swal({
+                          title: 'Are you sure want to Logout?',
+                          text: 'Once you click Ok, you will logout from the system!',
+                          icon: 'warning',
+                          buttons: true,
+                          dangerMode: true,
+                        })
+                          .then(willLogout => {
+                            if (willLogout) {
+                              swal('Logout Success!', {
+                                icon: 'success',
+                              })
+                              .then(result => {
+                                Cookies.remove('token');
+                                Cookies.remove('userEmail');
+                                Cookies.remove('userName');
+                                Cookies.remove('userPhoto');
+                                window.location.href = '/';
+                              })
+
+                            } else {
+                              swal('Logout failed!', {
+                                icon: 'warning',
+                              })
+                            }
+                          })
+                      }}
+                    >
+                      Log out
+                    </Dropdown.Item>
+                  </Dropdown>
+
                 </span>
               </li>
             }
